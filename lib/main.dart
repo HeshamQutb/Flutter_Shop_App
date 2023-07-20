@@ -5,7 +5,7 @@ import 'package:shop_app/shared/cubit/App/cubit.dart';
 import 'package:shop_app/shared/cubit/App/states.dart';
 import 'package:shop_app/shared/styles/theme.dart';
 
-import 'models/on_boarding_screen.dart';
+import 'modules/on_boarding_screen.dart';
 
 void main() {
   Bloc.observer = MyBlocObserver();

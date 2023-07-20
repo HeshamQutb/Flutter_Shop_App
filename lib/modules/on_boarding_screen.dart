@@ -3,7 +3,7 @@ import 'package:shop_app/shared/components/components.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../shared/styles/colors.dart';
-import 'login_screen.dart';
+import '../modules/login_screen.dart';
 
 
 
