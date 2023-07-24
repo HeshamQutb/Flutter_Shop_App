@@ -15,6 +15,7 @@ class ProductsData{
   dynamic images;
   dynamic in_favorites;
   dynamic in_cart;
+  dynamic discount;
 
   ProductsData.fromjson(Map<String, dynamic> json){
     id = json['id'];
@@ -26,6 +27,7 @@ class ProductsData{
     images = json['images'];
     in_favorites = json['in_favorites'];
     in_cart = json['in_cart'];
+    discount = json['discount'];
   }
 
 }
@@ -47,15 +49,12 @@ class BannersData{
 
 
 
-
-
-
-class HomeModel{
+class HomeDataModel{
   dynamic banners = [];
   dynamic products = [];
   dynamic ad;
 
-  HomeModel.fromjson(Map<String, dynamic> json){
+  HomeDataModel.fromjson(Map<String, dynamic> json){
 
     json['banners'].forEach((element) {
       banners.add(BannersData.fromjson(element));
@@ -70,12 +69,12 @@ class HomeModel{
 }
 
 
-class HomeDataModel {
+class HomeModel {
   dynamic status;
-  HomeModel? data;
+  HomeDataModel? data;
 
-  HomeDataModel.fromjson(Map<String, dynamic> json){
+  HomeModel.fromjson(Map<String, dynamic> json){
     status = json['status'];
-    data = json['data'] != null? HomeModel.fromjson(json['data']):null;
+    data = json['data'] != null? HomeDataModel.fromjson(json['data']):null;
   }
 }
