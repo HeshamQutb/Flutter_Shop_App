@@ -24,7 +24,6 @@ class CategoryScreen extends StatelessWidget {
         });
   }
 
-
   Widget categoriesBuilder(DataModel model) => Padding(
     padding: const EdgeInsets.all(20.0),
     child: Row(
