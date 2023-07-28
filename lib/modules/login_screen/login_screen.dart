@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shop_app/layout/home_layout.dart';
 import 'package:shop_app/shared/components/components.dart';
+import 'package:shop_app/shared/components/constants.dart';
 import 'package:shop_app/shared/cubit/login_screen/cubit.dart';
 import 'package:shop_app/shared/cubit/login_screen/states.dart';
 import 'package:shop_app/shared/network/local/cache_helper.dart';
@@ -30,6 +31,7 @@ class LoginScreen extends StatelessWidget {
               print(state.loginModel.data!.token);
 
               CacheHelper.setData(key: 'token', value: state.loginModel.data!.token).then((value) {
+                token = state.loginModel.data!.token;
                 navigateAndFinish(context, const HomeScreen());
               });
               showToast(message: state.loginModel.message!, state: ToastState.success);
@@ -41,8 +43,8 @@ class LoginScreen extends StatelessWidget {
           }
         },
         builder: (context, state) {
-          var cubit = LoginCubit.get(context);
 
+          var cubit = LoginCubit.get(context);
           return Scaffold(
             appBar: AppBar(),
             body: Center(
