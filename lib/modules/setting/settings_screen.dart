@@ -28,9 +28,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
         builder: (context,state){
 
           var cubit = ShopCubit.get(context).userData;
-          emailController.text = cubit?.data?.name;
-          nameController.text = cubit?.data?.phone;
-          phoneController.text = cubit?.data?.email;
+          emailController.text = cubit?.data?.email;
+          nameController.text = cubit?.data?.name;
+          phoneController.text = cubit?.data?.phone;
           return ConditionalBuilder(
               condition: ShopCubit.get(context).userData != null,
               builder: (context)=> Padding(
