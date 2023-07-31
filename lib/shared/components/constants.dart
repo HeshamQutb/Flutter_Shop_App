@@ -1,3 +1,5 @@
+// ignore_for_file: avoid_print
+
 import '../../modules/login_screen/login_screen.dart';
 import '../network/local/cache_helper.dart';
 import 'components.dart';

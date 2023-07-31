@@ -2,40 +2,44 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:shop_app/models/login_model.dart';
-import 'package:shop_app/shared/cubit/login_screen/states.dart';
+import 'package:shop_app/shared/cubit/register_screen/states.dart';
 import 'package:shop_app/shared/network/remote/dio_helper.dart';
 
+import '../../../models/register_model.dart';
 import '../../network/end_points.dart';
 
-class LoginCubit extends Cubit<LoginStates>{
-  LoginCubit() : super(LoginInitialStateState());
+class RegisterCubit extends Cubit<RegisterStates>{
+  RegisterCubit() : super(RegisterInitialStateState());
 
-  static LoginCubit get(context) => BlocProvider.of(context);
+  static RegisterCubit get(context) => BlocProvider.of(context);
 
-  LoginModel? userModel;
+  RegisterModel? registerModel;
 
 
-  void userLogin({
+  void userRegister({
     required String email,
     required String password,
+    required String name,
+    required String phone,
 }){
-    emit(LoginLoadingState());
+    emit(RegisterLoadingState());
     DioHelper.postData(
-        url: LOGIN,
+        url: REGISTER,
         data:{
           'email':email,
-          'password':password
+          'password':password,
+          'name':name,
+          'phone':phone,
         }
     ).then((value)
     {
       print(value?.data);
-      userModel = LoginModel.fromJson(value?.data);
-      emit(LoginSuccessState(userModel!));
+      registerModel = RegisterModel.fromJson(value?.data);
+      emit(RegisterSuccessState(registerModel!));
     }).catchError((error)
     {
       print(error.toString());
-      emit(LoginErrorState(error));
+      emit(RegisterErrorState(error));
     });
   }
 
@@ -44,7 +48,7 @@ class LoginCubit extends Cubit<LoginStates>{
   void changePasswordVisibility(){
     isPassword = !isPassword;
     isPassword == true ? suffix = Icons.visibility : suffix = Icons.visibility_off;
-    emit(LoginChangePasswordVisibilityState());
+    emit(RegisterChangePasswordVisibilityState());
   }
 
 

@@ -1,22 +1,23 @@
-import 'package:shop_app/models/login_model.dart';
 
-abstract class LoginStates {}
+import '../../../models/register_model.dart';
+
+abstract class RegisterStates {}
 
 
-class LoginInitialStateState extends LoginStates{}
+class RegisterInitialStateState extends RegisterStates{}
 
-class LoginLoadingState extends LoginStates{}
+class RegisterLoadingState extends RegisterStates{}
 
-class LoginSuccessState extends LoginStates{
-  final LoginModel loginModel;
+class RegisterSuccessState extends RegisterStates{
+  final RegisterModel registerModel;
 
-  LoginSuccessState(this.loginModel);
+  RegisterSuccessState(this.registerModel);
 }
 
-class LoginErrorState extends LoginStates{
+class RegisterErrorState extends RegisterStates{
   final String error;
 
-  LoginErrorState(this.error);
+  RegisterErrorState(this.error);
 }
 
-class LoginChangePasswordVisibilityState extends LoginStates{}
+class RegisterChangePasswordVisibilityState extends RegisterStates{}

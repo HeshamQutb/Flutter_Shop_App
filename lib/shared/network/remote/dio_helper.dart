@@ -54,4 +54,24 @@ class DioHelper {
     );
   }
 
+
+  static Future<Response?> putData({
+    required String url,
+    dynamic query,
+    required dynamic data,
+    String lang = 'en',
+    String? token
+  }) async {
+    init(); // Initialize the Dio instance
+    dio?.options.headers = {
+      'Content-Type': 'application/json',
+      'lang': lang,
+      'Authorization': token
+    };
+    return await dio?.put(
+        url,
+        data: data
+    );
+  }
+
 }

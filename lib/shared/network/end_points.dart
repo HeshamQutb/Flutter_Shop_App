@@ -10,4 +10,8 @@ const FAVORITES = 'https://student.valuxapps.com/api/favorites';
 
 const PROFILE = 'https://student.valuxapps.com/api/profile';
 
+const REGISTER = 'https://student.valuxapps.com/api/register';
+
+const UPDATE_PROFILE = 'https://student.valuxapps.com/api/update-profile';
+
 

@@ -39,3 +39,8 @@ class ShopGetUserDataSuccessState extends ShopStates{}
 
 class ShopGetUserDataErrorState extends ShopStates{}
 
+class ShopUpdateUserDataLoadingState extends ShopStates{}
+
+class ShopUpdateUserDataSuccessState extends ShopStates{}
+
+class ShopUpdateUserDataErrorState extends ShopStates{}
