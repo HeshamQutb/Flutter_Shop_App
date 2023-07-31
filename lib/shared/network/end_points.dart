@@ -14,4 +14,6 @@ const REGISTER = 'https://student.valuxapps.com/api/register';
 
 const UPDATE_PROFILE = 'https://student.valuxapps.com/api/update-profile';
 
+const SEARCH = 'https://student.valuxapps.com/api/products/search';
+
 

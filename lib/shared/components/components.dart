@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
+import '../cubit/Screens/cubit.dart';
 import '../styles/colors.dart';
 
 void navigateTo(context, widget) => Navigator.push(
@@ -186,5 +187,90 @@ Widget divider() => Padding(
 
     color: Colors.grey,
 
+  ),
+);
+
+
+Widget buildListProduct(model,context,{bool oldPrice = false}) => Padding(
+  padding: const EdgeInsets.all(20.0),
+  child: SizedBox(
+    width: 100,
+    height: 100,
+    child: Row(
+      children: [
+        Expanded(
+          flex: 1,
+          child: Stack(
+            alignment: AlignmentDirectional.bottomStart,
+            children: [
+              Image(
+                image: NetworkImage(model?.image),
+                fit: BoxFit.cover,
+              ),
+              if (model?.discount != 0 && !oldPrice )
+                Container(
+                  color: Colors.red,
+                  padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                  child: const Text(
+                    'DISCOUNT',
+                    style: TextStyle(fontSize: 8.0, color: Colors.white),
+                  ),
+                ),
+            ],
+          ),
+        ),
+        const SizedBox(
+          width: 5,
+        ),
+        Expanded(
+          flex: 2,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                model?.name,
+                maxLines: 3,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(fontSize: 10.0, height: 2),
+              ),
+              const Spacer(),
+              Expanded(
+                child: Row(
+                  children: [
+                    Text(
+                      '${model?.price.round()}',
+                      style: const TextStyle(
+                          fontSize: 12.0, height: 1.3, color: defaultColor),
+                    ),
+                    const SizedBox(
+                      width: 10,
+                    ),
+                    if (model?.discount != 0 && !oldPrice)
+                      Text(
+                        '${model?.oldPrice.round()}',
+                        style: const TextStyle(
+                            fontSize: 12.0,
+                            height: 1.3,
+                            color: Colors.grey,
+                            decoration: TextDecoration.lineThrough),
+                      ),
+                    const Spacer(),
+                    IconButton(
+                        onPressed: () {
+                          ShopCubit.get(context).changeFavorite(model?.id);
+                        },
+                        icon: Icon(
+                          Icons.favorite,
+                          color: ShopCubit.get(context).favorites[model?.id] == true ? defaultColor: Colors.grey,
+                          size: 15,
+                        ))
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
+      ],
+    ),
   ),
 );
