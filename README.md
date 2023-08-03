@@ -22,7 +22,6 @@ This repository contains a Shop App built using Flutter, which serves as a sampl
 
 - **State Management with BLoC**: Uses the bloc and flutter_bloc packages for efficient state management.
 
-- **Conditional Rendering**: Implements conditional rendering with conditional_builder_null_safety to handle null safety in the UI.
 
 ## Dependencies
 
