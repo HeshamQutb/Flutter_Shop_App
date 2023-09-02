@@ -33,7 +33,6 @@ The app utilizes the following key packages:
 - bloc - For implementing the BLoC pattern.
 - flutter_bloc - For integrating BLoC with Flutter.
 
-_Add other dependencies as needed._
 
 ## Installation
 
